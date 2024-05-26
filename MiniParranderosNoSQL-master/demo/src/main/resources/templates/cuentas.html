@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuentas</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body>
+    <div>
+        <h1>Lista de cuentas</h1>
+        <table class="table table-hover table-border">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Saldo</th>
+                    <th>id_cliente</th>
+                    <th>Tipo de Cuenta</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <th:block th:each="cuenta : ${cuentas}">
+                <tr>
+                    <td th:text="${cuenta.id}"></td>
+                    <td th:text="${cuenta.saldo}"></td>
+                    <td th:text="${cuenta.cliente_id}"></td>
+                    <td th:text="${cuenta.tipocuenta}"></td>
+                    <td th:text="${cuenta.estadocuenta}"></td>
+
+                    <td>
+                        <a th:href="@{'/cuentas/' + ${cuenta.id} + '/edit'}">
+                            Editar
+                        </a>
+                        <a th:href="@{'/cuentas/' + ${cuenta.id} + '/delete'}" onclick="return confirm('¿Estás seguro de borrar?')">
+                            Borrar
+                        </a>
+                    </td>
+                </tr>
+            </th:block>            
+        </table>
+        <div>
+            <a th:href="@{/}" class="btn btn-primary">Volver Atrás</a>
+            <a th:href="@{/cuentas/new}" class="btn btn-success">agregar cuenta</a>
+        </div>
+    </div>
+</body>
+</html>

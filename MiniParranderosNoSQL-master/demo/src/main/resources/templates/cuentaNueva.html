@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente Nuevo</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Agregar Nueva cuenta</h1>
+        <form th:action="@{/cuentas/new/save}" method="post">
+
+            <div class="form-group">
+                <label for="saldo">saldo:</label>
+                <input type="text" id="saldo" name="saldo" class="form-control" required th:value="${saldo}">
+            </div>
+            <div class="form-group">
+                <label for="cliente_id">cliente_id:</label>
+                <input type="text" id="cliente_id" name="cliente_id" class="cliente_id" required th:value="${cliente_id}">
+            </div>
+            <div class="form-group">
+                <label for="tipocuenta">tipocuenta:</label>
+                <input type="text" id="tipocuenta" name="tipocuenta" class="form-control" required th:value="${tipocuenta}">
+            </div>
+            <div class="form-group">
+                <label for="estadocuenta">estadocuenta:</label>
+                <input type="number" id="estadocuenta" name="estadocuenta" class="form-control" required th:value="${estadocuenta}">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Guardar cuenta</button>
+        </form>
+    </div>
+</body>
+</html>

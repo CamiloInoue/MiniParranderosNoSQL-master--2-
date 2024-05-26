@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones de Préstamo</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body>
+    <div>
+        <h1>Lista de operaciones de préstamo</h1>
+        <table class="table table-hover table-border">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Tipo de Operación de Préstamo</th>
+                    <th>Fecha</th>
+                    <th>Monto</th>
+                    <th>Punto de Atención</th>
+                    <th>Id de préstamo</th>
+                </tr>
+            </thead>
+            <th:block th:each="operacionPrestamo : ${operacionesPrestamo}">
+                <tr>
+                    <td th:text="${operacionPrestamo.id}"></td>
+                    <td th:text="${operacionPrestamo.tipooperacionprestamo}"></td>
+                    <td th:text="${operacionPrestamo.fechahora}"></td>
+                    <td th:text="${operacionPrestamo.monto}"></td>
+                    <td th:text="${operacionPrestamo.puntodeatencion}"></td>
+                    <td th:text="${operacionPrestamo.prestamo}"></td>
+                    <td>
+                        <a th:href="@{'/operacionesPrestamo/' + ${operacionPrestamo.id} + '/edit'}">
+                            Editar
+                        </a>
+                        <a th:href="@{'/operacionesPrestamo/' + ${operacionPrestamo.id} + '/delete'}" onclick="return confirm('¿Estás seguro de borrar?')">
+                            Borrar
+                        </a>
+                    </td>
+                </tr>
+            </th:block>            
+        </table>
+        <div>
+            <a th:href="@{/}" class="btn btn-primary">Volver Atrás</a>
+        </div>
+    </div>
+</body>
+</html>

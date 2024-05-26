@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones de Cuenta</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body>
+    <div>
+        <h1>Lista de operaciones de cuenta</h1>
+        <table class="table table-hover table-border">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Tipo de Operación de Cuenta</th>
+                    <th>Fecha</th>
+                    <th>Monto</th>
+                    <th>Id de Cuenta</th>
+                    <th>Cuenta Destino</th>
+                    <th>Id de Punto de Atención</th>
+                </tr>
+            </thead>
+            <th:block th:each="operacionCuenta : ${operacionesCuenta}">
+                <tr>
+                    <td th:text="${operacionCuenta.id}"></td>
+                    <td th:text="${operacionCuenta.tipooperacioncuenta}"></td>
+                    <td th:text="${operacionCuenta.fechahora}"></td>
+                    <td th:text="${operacionCuenta.monto}"></td>
+                    <td th:text="${operacionCuenta.cuenta_id}"></td>
+                    <td th:text="${operacionCuenta.cuentadestino}"></td>
+                    <td th:text="${operacionCuenta.puntodeatencion_id}"></td>
+                    <td>
+                        <a th:href="@{'/operacionesCuenta/' + ${operacionCuenta.id} + '/edit'}">
+                            Editar
+                        </a>
+                        <a th:href="@{'/operacionesCuenta/' + ${operacionCuenta.id} + '/delete'}" onclick="return confirm('¿Estás seguro de borrar?')">
+                            Borrar
+                        </a>
+                    </td>
+                </tr>
+            </th:block>            
+        </table>
+        <div>
+            <a th:href="@{/}" class="btn btn-primary">Volver Atrás</a>
+        </div>
+    </div>
+</body>
+</html>

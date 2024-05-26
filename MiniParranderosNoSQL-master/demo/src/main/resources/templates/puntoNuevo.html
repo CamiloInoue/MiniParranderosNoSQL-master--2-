@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente Nuevo</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Agregar Nuevo punto de atencion</h1>
+        <form th:action="@{/puntosDeAtencion/new/save}" method="post">
+
+            <div class="form-group">
+                <label for="tipopunto">tipopunto:</label>
+                <input type="text" id="tipopunto" name="tipopunto" class="form-control" required th:value="${tipopunto}">
+            </div>
+            <div class="form-group">
+                <label for="latitud">latitud:</label>
+                <input type="text" id="latitud" name="latitud" class="latitud" required th:value="${latitud}">
+            </div>
+            <div class="form-group">
+                <label for="longitud">longitud:</label>
+                <input type="text" id="longitud" name="longitud" class="form-control" required th:value="${longitud}">
+            </div>
+            <div class="form-group">
+                <label for="oficina_id">oficina_id:</label>
+                <input type="number" id="oficina_id" name="oficina_id" class="form-control" required th:value="${oficina_id}">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Guardar punto de atencion</button>
+        </form>
+    </div>
+</body>
+</html>

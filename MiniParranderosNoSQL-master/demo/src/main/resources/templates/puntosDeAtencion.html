@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puntos de Atención</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body>
+    <div>
+        <h1>Lista de puntos de atención</h1>
+        <table class="table table-hover table-border">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Tipo de punto</th>
+                    <th>Latitud</th>
+                    <th>Longitud</th>
+                    <th>Id oficina</th>
+                </tr>
+            </thead>
+            <th:block th:each="puntoDeAtencion : ${puntosDeAtencion}">
+                <tr>
+                    <td th:text="${puntoDeAtencion.id}"></td>
+                    <td th:text="${puntoDeAtencion.tipopunto}"></td>
+                    <td th:text="${puntoDeAtencion.latitud}"></td>
+                    <td th:text="${puntoDeAtencion.longitud}"></td>
+                    <td th:text="${puntoDeAtencion.oficina_id}"></td>
+                    <td>
+                        <a th:href="@{'/puntosDeAtencion/' + ${puntoDeAtencion.id} + '/edit'}">
+                            Editar
+                        </a>
+                        <a th:href="@{'/puntosDeAtencion/' + ${puntoDeAtencion.id} + '/delete'}" onclick="return confirm('¿Estás seguro de borrar?')">
+                            Borrar
+                        </a>
+                    </td>
+                </tr>
+            </th:block>            
+        </table>
+        <div>
+            <a th:href="@{/}" class="btn btn-primary">Volver Atrás</a>
+            <a th:href="@{/puntosDeAtencion/new}" class="btn btn-success">Agregar punto</a>
+        </div>
+    </div>
+</body>
+</html>

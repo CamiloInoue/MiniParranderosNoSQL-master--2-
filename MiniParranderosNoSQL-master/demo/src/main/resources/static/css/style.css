@@ -1,0 +1,43 @@
+
+.big_div{
+    margin: auto;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.container_flex, .container_buttons{
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+.container_buttons{
+    width: 25%;
+    justify-content: space-around;
+    margin: auto 0;
+}
+
+
+
+.container_flex img{
+    padding: 2em;
+    border-radius: 100%;
+    overflow: hidden;
+    width: 20%;
+    height: 20%;
+}
+
+.container_flex h1{
+    text-align: center;
+    margin: auto 0;
+    width: 55%;
+    font-family: "Big Shoulders Inline Text", sans-serif;
+    font-weight: 700;
+    font-size: 3em;
+    
+}
+
+.btn:hover{
+    scale: 105%;
+}

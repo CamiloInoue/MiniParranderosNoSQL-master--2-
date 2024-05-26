@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oficina Nuevo</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Agregar nueva oficina</h1>
+        <form th:action="@{/oficinas/new/save}" method="post">
+            <label class="col-form-label"> Id </label>
+            <input class="form-control" type="number" id="id" name="id" required th:value="${id}"/>
+            <label class="col-form-label"> Nombre </label>
+            <input class="form-control" type="text" id="nombre" name="nombre" required th:value="${nombre}"/>
+            <label class="col-form-label"> Dirección </label>
+            <input class="form-control" type="text" id="direccion" name="direccion" required th:value="${direccion}"/>
+            <label class="col-form-label"> Punto de Atención </label>
+            <input class="form-control" type="number" id="puntodeatencion" name="puntodeatencion" required th:value="${puntodeatencion}"/>
+            <button type="submit" class="btn btn-primary">Guardar oficina</button>
+        </form>
+    </div>
+</body>
+</html>
